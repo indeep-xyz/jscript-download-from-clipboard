@@ -9,7 +9,7 @@ function getOutputPath(url) {
       // if empty or anomaly filename
       // - set default name
       if (filename.length < 1 || !(/\//.test(url))) {
-        filename = 'downloaded';
+        filename = 'downloaded_from_clipboard';
       }
 
       // normalize for Windows
