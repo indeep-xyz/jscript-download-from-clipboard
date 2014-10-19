@@ -5,24 +5,28 @@ function getUrl() {
     return html.parentWindow.clipboardData.getData("text");
   }
 
-  function checkUrl(text) {
-    return /\/\w/.test(text)
+  function checkUrl(str) {
+    return /\//.test(str)
+  }
+
+  function errorParseUrl(str){
+    WScript.Echo(
+        "error occurred while parsing the URL string.\n\n" +
+        "str:\n" + str
+        );
   }
 
   // - - - - - - - - - - - - - - - - - - - - - -
   // main
 
-  var text = getClipboardText();
-  var url  = '';
+  var str = getClipboardText();
+  var url = '';
 
-  if (checkUrl(text)) {
-    url = text;
+  if (checkUrl(str)) {
+    url = str;
   }
   else {
-    WScript.Echo(
-        "the clipboard text is not URL.\n\n" +
-        text
-        );
+    errorParseUrl(str);
   }
 
   return url;

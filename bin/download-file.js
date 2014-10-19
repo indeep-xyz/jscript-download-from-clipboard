@@ -14,6 +14,14 @@ function downloadFile(url, outputPath) {
     stream.Savetofile(path, adSaveCreateOverWrite);
   }
 
+  function errorFailed(){
+    WScript.Echo(
+        "error occurred while downloading or saving file.\n\n" +
+        "url:\n" + url + "\n\n" +
+        "outputPath:\n" + outputPath
+        );
+  }
+
   // - - - - - - - - - - - - - - - - - - - - - -
   // main
 
@@ -21,10 +29,6 @@ function downloadFile(url, outputPath) {
     run();
   }
   catch (e) {
-    WScript.Echo(
-        "error until the download process\n\n" +
-        "url: " + url + "\n" +
-        "outputPath: " + outputPath
-        );
+    errorFailed();
   }
 }

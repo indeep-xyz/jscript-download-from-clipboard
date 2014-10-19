@@ -1,70 +1,69 @@
 function getOutputPath(url) {
 
-  function createOutputPath(url) {
+  function create(url) {
 
-    function createBase(url) {
+    var result = createBase(url);
 
-      var filename = url.replace(/^.+\//, '');
-
-      // if empty or anomaly filename
-      // - set default name
-      if (filename.length < 1 || !(/\//.test(url))) {
-        filename = 'downloaded_from_clipboard';
-      }
-
-      // normalize for Windows
-      filename = filename.replace(/[\\\/\?\*\|:<>]"/g, '_');
-
-      return filename;
+    if (exists(result)) {
+      result = createFilenameNumbered(result);
     }
 
-    function createFilenameNumbered(filename) {
+    return result;
+  }
 
-      var basename = filename;
-      var ext      = '';
+  function createBase(url) {
 
-      if (/^(.+)(\..+)$/.exec(filename)) {
-        basename = RegExp.$1;
-        ext      = RegExp.$2;
-      }
+    var filename = url.replace(/^.+\//, '');
+    filename = decodeURI(filename);
 
-      for(var i = 1; i++; i < 10000) {
-        var temp = basename + ' (' + i + ')' + ext;
-
-        if (!exists(temp)) {
-          return temp;
-        }
-      }
-
-      WScript.Echo('could not saved ' + filename + '.');
-      return '';
+    // if empty or anomaly filename
+    // - set default name
+    if (filename.length < 1 || !(/\//.test(url))) {
+      filename = 'downloaded_from_clipboard';
     }
 
-    function exists(filename) {
-      var fs = new ActiveXObject('Scripting.FileSystemObject');
-      return fs.FileExists(filename);
-    }
-
-    // - - - - - - - - - - - - - - - - - - - - - -
-    // main
-    // - createOutputPath()
-
-    var filename = createBase(url);
-
-    if (exists(filename)) {
-      filename = createFilenameNumbered(filename);
-    }
+    // normalize for Windows
+    filename = filename.replace(/[\\\/\?\*\|:<>"]/g, '_');
 
     return filename;
+  }
+
+  function createFilenameNumbered(filename) {
+
+    var basename = filename;
+    var ext      = '';
+
+    if (/^(.+)(\..+)$/.exec(filename)) {
+      basename = RegExp.$1;
+      ext      = RegExp.$2;
+    }
+
+    for(var i = 1; i++; i < 10000) {
+      var temp = basename + ' (' + i + ')' + ext;
+
+      if (!exists(temp)) {
+        return temp;
+      }
+    }
+
+    WScript.Echo('could not saved ' + filename + '.');
+    return '';
+  }
+
+  function exists(filename) {
+    var fs = new ActiveXObject('Scripting.FileSystemObject');
+    return fs.FileExists(filename);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - -
   // main
   // - getOutputPath()
 
-  var path = (url.length > 0)
-      ? createOutputPath(url)
-      : '';
+  var path = '';
+
+  if (url.length > 0) {
+    path = create(url);
+  }
 
   return path;
 }
