@@ -2,7 +2,7 @@ function getUrl() {
 
   function getClipboardText() {
     var html = new ActiveXObject('htmlfile');
-    return html.parentWindow.clipboardData.getData("text");
+    return html.parentWindow.clipboardData.getData('text');
   }
 
   function checkUrl(str) {
