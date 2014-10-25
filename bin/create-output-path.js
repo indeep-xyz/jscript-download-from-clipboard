@@ -1,4 +1,11 @@
-function getOutputPath(url) {
+/**
+ * create path for the output
+ *
+ * @url        text for the downloading
+ * @tempSuffix local path for the temporary file at downloading
+ * @return     local path for the output file
+ */
+function createOutputPath(url, tempSuffix) {
 
   function create(url) {
 
@@ -41,7 +48,7 @@ function getOutputPath(url) {
     for(var i = 1; i++; i < 10000) {
       var temp = basename + ' (' + i + ')' + ext;
 
-      if (!exists(temp)) {
+      if (!exists(temp) && !exists(temp + tempSuffix)) {
         return temp;
       }
     }

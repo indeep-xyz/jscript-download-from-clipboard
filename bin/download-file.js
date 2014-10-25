@@ -1,6 +1,6 @@
-function downloadFile(url, outputPath) {
+function downloadFile(url, outputPath, tempSuffix) {
 
-  function run() {
+  function download(path) {
     var http                  = WScript.CreateObject('Msxml2.XMLHTTP');
     var stream                = WScript.CreateObject('Adodb.Stream');
     var adTypeBinary          = 1;
@@ -11,34 +11,43 @@ function downloadFile(url, outputPath) {
     stream.type = adTypeBinary;
     stream.Open();
     stream.Write(http.responseBody);
-    stream.Savetofile(outputPath, adSaveCreateOverWrite);
+    stream.Savetofile(path, adSaveCreateOverWrite);
   }
 
-  function createTempFile() {
+  function createTemp(path) {
     var FOR_WRITING    = 2;
     var TRISTATE_FALSE = 0;
     var fs   = new ActiveXObject('Scripting.FileSystemObject');
-    var file = fs.CreateTextFile(outputPath, FOR_WRITING, TRISTATE_FALSE);
+    var file = fs.CreateTextFile(path, FOR_WRITING, TRISTATE_FALSE);
 
     file.close();
   }
 
-  function errorFailed(){
+  function errorFailed(url, tempPath, outputPath){
     WScript.Echo(
         "error occurred while downloading or saving file.\n\n" +
-        "url:\n" + url + "\n\n" +
+        "url:\n"        + url        + "\n\n" +
+        "tempPath:\n"   + tempPath   + "\n\n" +
         "outputPath:\n" + outputPath
         );
+  }
+
+  function rename(src, dest) {
+    var fs   = new ActiveXObject('Scripting.FileSystemObject');
+    fs.MoveFile(src, dest);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - -
   // main
 
+  var tempPath = outputPath + tempSuffix;
+
   try {
-    createTempFile();
-    run();
+    createTemp(tempPath);
+    download(tempPath);
+    rename(tempPath, outputPath);
   }
   catch (e) {
-    errorFailed();
+    errorFailed(url, tempPath, outputPath);
   }
 }

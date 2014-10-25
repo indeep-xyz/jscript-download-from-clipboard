@@ -1,9 +1,10 @@
-var url  = getUrl();
-var path = getOutputPath(url);
+var tempSuffix = ' (downloading)';
+var url        = getUrl();
+var outputPath = createOutputPath(url, tempSuffix);
 
 // WScript.echo(url);
-// WScript.echo(path);
+// WScript.echo(outputPath);
 
-if (url.length + path.length > 0){
-  downloadFile(url, path);
+if (url.length + outputPath.length > 0){
+  downloadFile(url, outputPath, tempSuffix);
 }

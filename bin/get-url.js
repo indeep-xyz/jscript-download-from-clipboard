@@ -1,3 +1,8 @@
+/**
+ * get the string for URL from the clipboard
+ *
+ * @return string for URL
+ */
 function getUrl() {
 
   function getClipboardText() {
