@@ -1,16 +1,15 @@
 /**
  * Download a file from an URL argument.
  *
- * @param  {string} url        - An URL for downloading
- * @param  {string} outputPath - A local path for downloading
+ * @param  {UrlObject} urlObject - An URL for downloading
  * @param  {string} tempSuffix - A suffix for a tempolary file at downloading
  */
-function downloadFile(url, outputPath, tempSuffix) {
+function downloadFile(urlObject, tempSuffix) {
 
   // - - - - - - - - - - - - - - - - - - - - - -
   // private functions - in downloadFile
 
-  function download(path) {
+  function download(url, path) {
     var http                  = WScript.CreateObject('Msxml2.XMLHTTP');
     var stream                = WScript.CreateObject('Adodb.Stream');
     var adTypeBinary          = 1;
@@ -36,7 +35,7 @@ function downloadFile(url, outputPath, tempSuffix) {
   function errorFailed(url, tempPath, outputPath){
     WScript.Echo(
         "error occurred while downloading or saving file.\n\n" +
-        "url:\n"        + url        + "\n\n" +
+        "url:\n"        + url + "\n\n" +
         "tempPath:\n"   + tempPath   + "\n\n" +
         "outputPath:\n" + outputPath
         );
@@ -50,11 +49,13 @@ function downloadFile(url, outputPath, tempSuffix) {
   // - - - - - - - - - - - - - - - - - - - - - -
   // main - in downloadFile
 
+  var url = urlObject.origin;
+  var outputPath = createOutputPath(url, tempSuffix);
   var tempPath = outputPath + tempSuffix;
 
   try {
     createTemp(tempPath);
-    download(tempPath);
+    download(url, tempPath);
     rename(tempPath, outputPath);
   }
   catch (e) {
