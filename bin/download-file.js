@@ -1,4 +1,14 @@
+/**
+ * Download a file from an URL argument.
+ *
+ * @param  {string} url        - An URL for downloading
+ * @param  {string} outputPath - A local path for downloading
+ * @param  {string} tempSuffix - A suffix for a tempolary file at downloading
+ */
 function downloadFile(url, outputPath, tempSuffix) {
+
+  // - - - - - - - - - - - - - - - - - - - - - -
+  // private functions - in downloadFile
 
   function download(path) {
     var http                  = WScript.CreateObject('Msxml2.XMLHTTP');
@@ -38,7 +48,7 @@ function downloadFile(url, outputPath, tempSuffix) {
   }
 
   // - - - - - - - - - - - - - - - - - - - - - -
-  // main
+  // main - in downloadFile
 
   var tempPath = outputPath + tempSuffix;
 
