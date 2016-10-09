@@ -1,11 +1,14 @@
 /**
- * create path for the output
+ * Create a path for the output.
  *
- * @url        text for the downloading
- * @tempSuffix local path for the temporary file at downloading
- * @return     local path for the output file
+ * @param [string] url - Text for the downloading
+ * @param [string] tempSuffix - A local path for the temporary file at downloading
+ * @return [string] A local path for the output file
  */
 function createOutputPath(url, tempSuffix) {
+
+  // - - - - - - - - - - - - - - - - - - - - - -
+  // private functions - in getOutputPath()
 
   function create(url) {
 
@@ -63,8 +66,7 @@ function createOutputPath(url, tempSuffix) {
   }
 
   // - - - - - - - - - - - - - - - - - - - - - -
-  // main
-  // - getOutputPath()
+  // main - in getOutputPath()
 
   var path = '';
 
