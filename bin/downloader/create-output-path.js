@@ -9,38 +9,33 @@
 Downloader.prototype.createOutputPath = function(url, tempSuffix) {
 
   // - - - - - - - - - - - - - - - - - - - - - -
-  // private functions - in getOutputPath()
+  // private functions - in Downloader#createOutputPath
 
   function create(url) {
+    var filename = createBaseFilename(url);
 
-    var result = createBase(url);
-
-    if (exists(result)) {
-      result = createFilenameNumbered(result);
+    if (doesExist(filename)) {
+      filename = createFilenameNumbered(filename);
     }
 
-    return result;
+    return filename;
   }
 
-  function createBase(url) {
-
+  function createBaseFilename(url) {
     var filename = url.replace(/^.+\//, '');
-    filename = decodeURI(filename);
 
-    // if empty or anomaly filename
-    // - set default name
-    if (filename.length < 1 || !(/\//.test(url))) {
+    if (filename.length < 1) {
       filename = 'downloaded_from_clipboard';
     }
-
-    // normalize for Windows
-    filename = filename.replace(/[\\\/\?\*\|:<>"]/g, '_');
+    else {
+      filename = decodeURI(filename);
+      filename = filename.replace(/[\\\/\?\*\|:<>"]/g, '_');
+    }
 
     return filename;
   }
 
   function createFilenameNumbered(filename) {
-
     var basename = filename;
     var ext      = '';
 
@@ -52,7 +47,7 @@ Downloader.prototype.createOutputPath = function(url, tempSuffix) {
     for(var i = 1; i++; i < 10000) {
       var temp = basename + ' (' + i + ')' + ext;
 
-      if (!exists(temp) && !exists(temp + tempSuffix)) {
+      if (!doesExist(temp) && !doesExist(temp + tempSuffix)) {
         return temp;
       }
     }
@@ -61,13 +56,13 @@ Downloader.prototype.createOutputPath = function(url, tempSuffix) {
     return '';
   }
 
-  function exists(filename) {
+  function doesExist(filename) {
     var fs = new ActiveXObject('Scripting.FileSystemObject');
     return fs.FileExists(filename);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - -
-  // main - in getOutputPath()
+  // main - in Downloader#createOutputPath
 
   var path = '';
 
