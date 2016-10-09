@@ -1,9 +1,12 @@
 /**
- * get the string for URL from the clipboard
+ * Get text as an URL from clipboard.
  *
- * @return string for URL
+ * @return [string] An URL
  */
 function getUrl() {
+
+  // - - - - - - - - - - - - - - - - - - - - - -
+  // private functions - getUrl
 
   function getClipboardText() {
     var html = new ActiveXObject('htmlfile');
@@ -22,7 +25,7 @@ function getUrl() {
   }
 
   // - - - - - - - - - - - - - - - - - - - - - -
-  // main
+  // main - getUrl
 
   var str = getClipboardText();
   var url = '';
