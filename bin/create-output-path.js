@@ -1,8 +1,8 @@
 /**
- * Create a path for the output.
+ * Create a path to write a file.
  *
- * @param [string] url - Text for the downloading
- * @param [string] tempSuffix - A local path for the temporary file at downloading
+ * @param  [string] url        - An URL for the downloading
+ * @param  [string] tempSuffix - A local path for the temporary file at downloading
  * @return [string] A local path for the output file
  */
 function createOutputPath(url, tempSuffix) {
