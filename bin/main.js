@@ -10,5 +10,6 @@ var urlSource  = getTextFromClipboard();
 var urlObject  = new UrlObject(urlSource);
 
 if (urlObject.isUrl) {
-  downloadFile(urlObject, tempSuffix);
+  var downloader = DownloaderFactory.create(urlObject, tempSuffix);
+  downloader.download();
 }

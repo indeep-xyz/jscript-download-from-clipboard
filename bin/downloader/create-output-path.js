@@ -1,11 +1,12 @@
 /**
  * Create a path to write a file.
  *
+ * @method
  * @param  [string] url        - An URL for the downloading
  * @param  [string] tempSuffix - A local path for the temporary file at downloading
  * @return [string] A local path for the output file
  */
-function createOutputPath(url, tempSuffix) {
+Downloader.prototype.createOutputPath = function(url, tempSuffix) {
 
   // - - - - - - - - - - - - - - - - - - - - - -
   // private functions - in getOutputPath()

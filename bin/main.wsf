@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <package>
   <job>
-    <script language="JavaScript" src="downloader/download-file.js"></script>
+    <script language="JavaScript" src="downloader/downloader.js"></script>
+    <script language="JavaScript" src="downloader/file-downloader.js"></script>
     <script language="JavaScript" src="downloader/create-output-path.js"></script>
+    <script language="JavaScript" src="downloader/downloader-factory.js"></script>
     <script language="JavaScript" src="url-object.js"></script>
     <script language="JavaScript" src="get-text-from-clipboard.js"></script>
     <script language="JavaScript" src="main.js"></script>
