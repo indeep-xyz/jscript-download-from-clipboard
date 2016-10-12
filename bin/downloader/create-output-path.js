@@ -11,7 +11,7 @@ Downloader.prototype.createOutputPath = function(url, tempSuffix) {
   // - - - - - - - - - - - - - - - - - - - - - -
   // private functions - in Downloader#createOutputPath
 
-  function create(url) {
+  function createFilename(url) {
     var filename = createBaseFilename(url);
 
     if (doesExist(filename)) {
@@ -67,7 +67,7 @@ Downloader.prototype.createOutputPath = function(url, tempSuffix) {
   var path = '';
 
   if (url.length > 0) {
-    path = create(url);
+    path = createFilename(url);
   }
 
   return path;
