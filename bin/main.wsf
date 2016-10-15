@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <package>
   <job>
+    <!-- Downloader -->
     <script language="JavaScript" src="downloader/downloader.js"></script>
     <script language="JavaScript" src="downloader/file-downloader.js"></script>
     <script language="JavaScript" src="downloader/youtube-downloader.js"></script>
@@ -8,8 +9,12 @@
     <script language="JavaScript" src="downloader/youtube-playlist-downloader.js"></script>
     <script language="JavaScript" src="downloader/create-output-path.js"></script>
     <script language="JavaScript" src="downloader/downloader-factory.js"></script>
-    <script language="JavaScript" src="url-object.js"></script>
-    <script language="JavaScript" src="get-text-from-clipboard.js"></script>
+
+    <!-- UrlObject -->
+    <script language="JavaScript" src="url-object/url-object.js"></script>
+    <script language="JavaScript" src="url-object/get-text-from-clipboard.js"></script>
+
+    <!-- main -->
     <script language="JavaScript" src="main.js"></script>
   </job>
 </package>
