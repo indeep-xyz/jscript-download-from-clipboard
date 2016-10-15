@@ -15,6 +15,15 @@ function YoutubeDownloader(urlObject) {
 YoutubeDownloader.prototype = new Downloader();
 
 /**
+ * @static
+ * @var {string} the default path  for youtube-dl.
+ */
+YoutubeDownloader.defaultPathYoutubeDl = (function(){
+  var binDir = WScript.ScriptFullName.match(/(^.+[\\\/])/)[0];
+  return binDir + 'EXT/youtube-dl.exe';
+})();
+
+/**
  * Check whether the argument URL is a video or a playlist at YouTube or not.
  *
  * @static
@@ -113,26 +122,8 @@ YoutubeDownloader.isPlaylistUrl = function(urlObject) {
  * @return {boolean} Return true when the file is available
  */
 YoutubeDownloader.isExeAvailable = function(path) {
-  // - - - - - - - - - - - - - - - - - - - - - -
-  // private functions - in YoutubeDownloader.isExeAvailable
-
-  /**
-   * Get the default path for youtube-dl.
-   *
-   * @private
-   * @method
-   * @return {boolean} Return the default path
-   */
-  function getDefaultPath() {
-    var binDir = WScript.ScriptFullName.match(/(^.+[\\\/])/)[0];
-    return binDir + 'EXT/youtube-dl.exe';
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - -
-  // main - in YoutubeDownloader.isExeAvailable
-
   var fs = new ActiveXObject('Scripting.FileSystemObject');
-  path = path || getDefaultPath();
+  path = path || YoutubeDownloader.defaultPathYoutubeDl;
 
   return fs.FileExists(path);
 };
