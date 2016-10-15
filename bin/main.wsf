@@ -5,6 +5,7 @@
     <script language="JavaScript" src="downloader/file-downloader.js"></script>
     <script language="JavaScript" src="downloader/youtube-downloader.js"></script>
     <script language="JavaScript" src="downloader/youtube-video-downloader.js"></script>
+    <script language="JavaScript" src="downloader/youtube-playlist-downloader.js"></script>
     <script language="JavaScript" src="downloader/create-output-path.js"></script>
     <script language="JavaScript" src="downloader/downloader-factory.js"></script>
     <script language="JavaScript" src="url-object.js"></script>
