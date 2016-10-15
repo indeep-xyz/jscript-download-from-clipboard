@@ -127,3 +127,17 @@ YoutubeDownloader.isExeAvailable = function(path) {
 
   return fs.FileExists(path);
 };
+
+/**
+ * Require the execution file is available.
+ *
+ * @static
+ * @method
+ * @param  {string}  path - A path for the execution file of youtube-dl. The default path is at bin/EXT/youtube-dl.exe
+ */
+YoutubeDownloader.requireExeAvailable = function(path) {
+  if (!YoutubeDownloader.isExeAvailable(path)) {
+    WScript.Echo('Require youtube-dl to download video files in Youtube.');
+    WScript.Quit(1);
+  }
+};
