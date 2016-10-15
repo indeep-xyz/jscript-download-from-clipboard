@@ -1,7 +1,9 @@
 // - - - - - - - - - - - - - - - - - - - - - -
 // options
 
-var tempSuffix = ' (downloading)';
+var options = {
+  tempSuffix: ' (downloading)'
+};
 
 // - - - - - - - - - - - - - - - - - - - - - -
 // main
@@ -10,6 +12,6 @@ var urlSource  = getTextFromClipboard();
 var urlObject  = new UrlObject(urlSource);
 
 if (urlObject.isUrl) {
-  var downloader = DownloaderFactory.create(urlObject, tempSuffix);
+  var downloader = DownloaderFactory.create(urlObject, options);
   downloader.download();
 }

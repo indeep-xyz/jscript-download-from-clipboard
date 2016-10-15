@@ -44,7 +44,7 @@ FileDownloader.prototype.download =  function(){
 
   var url        = this.urlObject.origin;
   var outputPath = this.createOutputPath(url, this.tempSuffix);
-  var tempPath   = outputPath + tempSuffix;
+  var tempPath   = outputPath + this.tempSuffix;
 
   try {
     this.createTempFile(tempPath);

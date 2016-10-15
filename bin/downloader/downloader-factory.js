@@ -11,11 +11,14 @@ var DownloaderFactory = function(){};
  *
  * @static
  * @method
- * @param  {UrlObject} urlObject  - An URL for downloading
- * @param  {string}    tempSuffix - A suffix for a tempolary file at downloading
+ * @param  {UrlObject} urlObject             - An URL for downloading
+ * @param  {object}    options               - Options for running
+ * @param  {string}    options.tempSuffix    - A suffix for a tempolary file at downloading
+ * @param  {string}    options.youtubeDlPath - A path for the execution file of youtube-dl
+ * @optional
  * @return {Downloader} An instance of Downloader classes
  */
-DownloaderFactory.create = function(urlObject, tempSuffix) {
+DownloaderFactory.create = function(urlObject, options) {
   if (YoutubeDownloader.isVideoUrl(urlObject)) {
     WScript.Echo('youtube video: ' + urlObject.origin);
     WScript.Quit();
@@ -29,6 +32,6 @@ DownloaderFactory.create = function(urlObject, tempSuffix) {
   else {
     // WScript.Echo('not youtube: ' + urlObject.origin);
     // WScript.Quit();
-    return new FileDownloader(urlObject, tempSuffix);
+    return new FileDownloader(urlObject, options.tempSuffix);
   }
 };
