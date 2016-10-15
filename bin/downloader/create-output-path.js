@@ -22,7 +22,7 @@ Downloader.prototype.createOutputPath = function(url, tempSuffix) {
   }
 
   function createBaseFilename(url) {
-    var filename = url.replace(/^.+\//, '');
+    var filename = url.replace(/^.+\/([^\?]+).*/, '$1');
 
     if (filename.length < 1) {
       filename = 'downloaded_from_clipboard';
