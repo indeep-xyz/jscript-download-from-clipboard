@@ -1,5 +1,5 @@
 /**
- * Download videos at YouTube from an URL argument.
+ * Download videos from YouTube.
  *
  * @class
  * @param  {object} options               - Options for running
@@ -18,7 +18,7 @@ YoutubeVideoDownloader.prototype = new YoutubeDownloader();
  * Download a video from YouTube.
  *
  * @method
- * @param  {url} url - An URL for downloading
+ * @param  {url} url - An URL of a video
  */
 YoutubeVideoDownloader.prototype.download =  function(url){
 
@@ -28,6 +28,8 @@ YoutubeVideoDownloader.prototype.download =  function(url){
   /**
    * Run youtube-dl for getting a video file.
    *
+   * @private
+   * @method
    * @param  {string} url           - A video URL for downloading
    * @param  {string} pathYoutubeDl - A path for the execution file of youtube-dl
    */
@@ -66,9 +68,7 @@ YoutubeVideoDownloader.prototype.download =  function(url){
  * Raise an error.
  *
  * @method
- * @param  {string} url        - An URL for downloading
- * @param  {string} tempPath   - A path for a temporary file
- * @param  {string} outputPath - A path which you tried to write a file
+ * @param  {string} url - An URL for downloading
  */
 YoutubeVideoDownloader.prototype.raiseError = function(url){
   WScript.Echo(
