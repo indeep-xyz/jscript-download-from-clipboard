@@ -103,3 +103,36 @@ YoutubeDownloader.isPlaylistUrl = function(urlObject) {
 
   return isFullUrl(urlObject);
 };
+
+/**
+ * Check whether the execution file is available or not.
+ *
+ * @static
+ * @method
+ * @param  {string}  path - A path for the execution file of youtube-dl. The default path is at bin/EXT/youtube-dl.exe
+ * @return {boolean} Return true when the file is available
+ */
+YoutubeDownloader.isExeAvailable = function(path) {
+  // - - - - - - - - - - - - - - - - - - - - - -
+  // private functions - in YoutubeDownloader.isExeAvailable
+
+  /**
+   * Get the default path for youtube-dl.
+   *
+   * @private
+   * @method
+   * @return {boolean} Return the default path
+   */
+  function getDefaultPath() {
+    var binDir = WScript.ScriptFullName.match(/(^.+[\\\/])/)[0];
+    return binDir + 'EXT/youtube-dl.exe';
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - -
+  // main - in YoutubeDownloader.isExeAvailable
+
+  var fs = new ActiveXObject('Scripting.FileSystemObject');
+  path = path || getDefaultPath();
+
+  return fs.FileExists(path);
+};
