@@ -1,11 +1,9 @@
 /**
- * Download videos at YouTube from an URL argument.
+ * Download videos from YouTube.
  *
  * @class
  */
-function YoutubeDownloader() {
-
-}
+var YoutubeDownloader = function(){};
 
 /**
  * @extends {Downloader}
@@ -14,7 +12,7 @@ YoutubeDownloader.prototype = new Downloader();
 
 /**
  * @static
- * @var {string} the default path  for youtube-dl.
+ * @var {string} the default path for youtube-dl.
  */
 YoutubeDownloader.defaultPathYoutubeDl = (function(){
   var binDir = WScript.ScriptFullName.match(/(^.+[\\\/])/)[0];
@@ -26,8 +24,8 @@ YoutubeDownloader.defaultPathYoutubeDl = (function(){
  *
  * @static
  * @method
- * @param  {UrlObject} urlObject  - An URL for downloading
- * @return {boolean} Return true if an URL is at YouTube.
+ * @param  {UrlObject} urlObject - An URL for downloading
+ * @return {boolean}   Return true if the URL is a video or a playlist in YouTube
  */
 YoutubeDownloader.isUrl = function(urlObject) {
   return YoutubeDownloader.isVideoUrl(urlObject) ||
@@ -35,12 +33,12 @@ YoutubeDownloader.isUrl = function(urlObject) {
 };
 
 /**
- * Check whether the argument URL is a video at YouTube or not.
+ * Check whether the argument URL is a video in YouTube or not.
  *
  * @static
  * @method
  * @param  {UrlObject} urlObject - An URL for downloading
- * @return {boolean} Return true if an URL is at YouTube.
+ * @return {boolean}   Return true if the URL is a video in YouTube
  */
 YoutubeDownloader.isVideoUrl = function(urlObject) {
 
@@ -53,7 +51,7 @@ YoutubeDownloader.isVideoUrl = function(urlObject) {
    * @private
    * @method
    * @param  {UrlObject} urlObject - An URL for downloading
-   * @return {boolean} Return true if an URL is at YouTube.
+   * @return {boolean}   Return true if the URL is a video in YouTube
    */
   function isFullUrl(urlObject) {
     return (/(www\.)?youtube\.com/).test(urlObject.hostname) &&
@@ -66,7 +64,7 @@ YoutubeDownloader.isVideoUrl = function(urlObject) {
    * @private
    * @method
    * @param  {UrlObject} urlObject - An URL for downloading
-   * @return {boolean} Return true if an URL is at YouTube.
+   * @return {boolean}   Return true if the URL is a video in YouTube
    */
   function isShortUrl(urlObject) {
     return (/youtu\.be/).test(urlObject.hostname);
@@ -80,12 +78,12 @@ YoutubeDownloader.isVideoUrl = function(urlObject) {
 };
 
 /**
- * Check whether the argument URL is a playlist at YouTube or not.
+ * Check whether the argument URL is a playlist in YouTube or not.
  *
  * @static
  * @method
  * @param  {UrlObject} urlObject - An URL for downloading
- * @return {boolean} Return true if an URL is at YouTube.
+ * @return {boolean}   Return true if the URL is a playlist in YouTube
  */
 YoutubeDownloader.isPlaylistUrl = function(urlObject) {
 
@@ -98,7 +96,7 @@ YoutubeDownloader.isPlaylistUrl = function(urlObject) {
    * @private
    * @method
    * @param  {UrlObject} urlObject - An URL for downloading
-   * @return {boolean} Return true if an URL is at YouTube.
+   * @return {boolean}   Return true if the URL is a playlist in YouTube
    */
   function isFullUrl(urlObject) {
     return (/(www\.)?youtube\.com/).test(urlObject.hostname) &&
@@ -116,7 +114,7 @@ YoutubeDownloader.isPlaylistUrl = function(urlObject) {
  *
  * @static
  * @method
- * @param  {string}  path - A path for the execution file of youtube-dl. The default path is at bin/EXT/youtube-dl.exe
+ * @param  {string}  path - A path for the execution file of youtube-dl
  * @return {boolean} Return true when the file is available
  */
 YoutubeDownloader.isExeAvailable = function(path) {
@@ -131,7 +129,7 @@ YoutubeDownloader.isExeAvailable = function(path) {
  *
  * @static
  * @method
- * @param  {string}  path - A path for the execution file of youtube-dl. The default path is at bin/EXT/youtube-dl.exe
+ * @param  {string} path - A path for the execution file of youtube-dl
  */
 YoutubeDownloader.requireExeAvailable = function(path) {
   if (!YoutubeDownloader.isExeAvailable(path)) {
