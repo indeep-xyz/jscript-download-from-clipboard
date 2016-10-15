@@ -30,12 +30,11 @@ YoutubeVideoDownloader.prototype.download =  function(url){
    *
    * @private
    * @method
-   * @param  {string} url           - A video URL for downloading
-   * @param  {string} pathYoutubeDl - A path for the execution file of youtube-dl
+   * @param  {string} url - A video URL for downloading
    */
-  function run(url, pathYoutubeDl) {
+  function run(url) {
     var shell = new ActiveXObject("WScript.Shell");
-    var command = "\"" + pathYoutubeDl + "\"" + " " + url;
+    var command = "\"" + self.pathYoutubeDl + "\"" + " " + url;
 
     // arg[0]:
     //          The command for youtube-dl running.
@@ -52,12 +51,11 @@ YoutubeVideoDownloader.prototype.download =  function(url){
   // - - - - - - - - - - - - - - - - - - - - - -
   // main - in YoutubeVideoDownloader.download
 
-  var pathYoutubeDl = this.pathYoutubeDl;
-
-  YoutubeDownloader.requireExeAvailable(pathYoutubeDl);
+  var self = this;
+  YoutubeDownloader.requireExeAvailable(this.pathYoutubeDl);
 
   try {
-    run(url, pathYoutubeDl);
+    run(url);
   }
   catch (e) {
     this.raiseError(url);
