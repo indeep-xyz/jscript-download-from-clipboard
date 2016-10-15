@@ -65,7 +65,7 @@ function UrlObject(origin) {
     var re = new RegExp('^([^:]+?://)?[^:]+:(\\d+)/?');
     var ary = re.exec(str);
 
-    return (ary === null) ? 80 : parseInt(ary[2], 10);
+    return (ary === null) ? '' : parseInt(ary[2], 10);
   }
 
   /**
