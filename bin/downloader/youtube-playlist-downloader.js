@@ -40,13 +40,11 @@ YoutubePlaylistDownloader.prototype.download =  function(url){
    *
    * @private
    * @method
-   * @param  {string} url           - A video URL for downloading
-   * @param  {string} outputPath    - A format to output files by youtube-dl
-   * @param  {string} pathYoutubeDl - A path for the execution file of youtube-dl
+   * @param  {string} url - A video URL for downloading
    */
-  function run(url, outputPath, pathYoutubeDl) {
+  function run(url) {
     var shell = new ActiveXObject("WScript.Shell");
-    var command = "\"" + pathYoutubeDl + "\" -o \"" + outputPath + "\" " + url;
+    var command = "\"" + self.pathYoutubeDl + "\" -o \"" + self.outputPath + "\" " + url;
 
     // arg[0]:
     //          The command for youtube-dl running.
@@ -63,13 +61,11 @@ YoutubePlaylistDownloader.prototype.download =  function(url){
   // - - - - - - - - - - - - - - - - - - - - - -
   // main - in YoutubePlaylistDownloader.download
 
-  var outputPath = this.outputPath;
-  var pathYoutubeDl = this.pathYoutubeDl;
-
-  YoutubeDownloader.requireExeAvailable(pathYoutubeDl);
+  var self = this;
+  YoutubeDownloader.requireExeAvailable(self.pathYoutubeDl);
 
   try {
-    run(url, outputPath, pathYoutubeDl);
+    run(url);
   }
   catch (e) {
     this.raiseError(url);
