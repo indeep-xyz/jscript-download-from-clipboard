@@ -16,7 +16,19 @@ var DownloaderFactory = function(){};
  * @return {Downloader} An instance of Downloader classes
  */
 DownloaderFactory.create = function(urlObject, tempSuffix) {
-  if (true) {
+  if (YoutubeDownloader.isVideoUrl(urlObject)) {
+    WScript.Echo('youtube video: ' + urlObject.origin);
+    WScript.Quit();
+    return new YoutubeDownloader(urlObject);
+  }
+  if (YoutubeDownloader.isPlaylistUrl(urlObject)) {
+    WScript.Echo('youtube playlist: ' + urlObject.origin);
+    WScript.Quit();
+    return new YoutubeDownloader(urlObject);
+  }
+  else {
+    // WScript.Echo('not youtube: ' + urlObject.origin);
+    // WScript.Quit();
     return new FileDownloader(urlObject, tempSuffix);
   }
 };
