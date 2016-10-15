@@ -38,6 +38,8 @@ YoutubePlaylistDownloader.prototype.download =  function(url){
   /**
    * Run youtube-dl for getting a video file.
    *
+   * @private
+   * @method
    * @param  {string} url           - A video URL for downloading
    * @param  {string} outputPath    - A format to output files by youtube-dl
    * @param  {string} pathYoutubeDl - A path for the execution file of youtube-dl
