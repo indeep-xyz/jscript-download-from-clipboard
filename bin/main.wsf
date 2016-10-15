@@ -12,6 +12,7 @@
 
     <!-- UrlObject -->
     <script language="JavaScript" src="url-object/url-object.js"></script>
+    <script language="JavaScript" src="url-object/url-object-list.js"></script>
     <script language="JavaScript" src="url-object/get-text-from-clipboard.js"></script>
 
     <!-- main -->

@@ -43,10 +43,6 @@ function UrlObject(origin) {
     return (ary === null) ? '' : ary[1];
   }
 
-  function trim(str) {
-    return str.replace(/^[\s\r\t\n　]+|[\s\r\t\n　]+$/g, '');
-  }
-
   // - - - - - - - - - - - - - - - - - - - - - -
   // private functions - others - in UrlObject
 
@@ -68,8 +64,6 @@ function UrlObject(origin) {
   // - - - - - - - - - - - - - - - - - - - - - -
   // main - in UrlObject
 
-  origin = trim(origin);
-
   this.origin = origin;
   this.isUrl = checkUrl(origin);
 
@@ -78,8 +72,5 @@ function UrlObject(origin) {
     this.hostname = extractHostname(origin);
     this.port = extractPort(origin);
     this.hash = extractHash(origin);
-  }
-  else {
-    failParsingUrl(origin);
   }
 }

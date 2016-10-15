@@ -8,10 +8,11 @@ var options = {
 // - - - - - - - - - - - - - - - - - - - - - -
 // main
 
-var urlSource  = getTextFromClipboard();
-var urlObject  = new UrlObject(urlSource);
+var urlObjectList = new UrlObjectList();
 
-if (urlObject.isUrl) {
+for (var i = 0; i < urlObjectList.list.length; i++) {
+  var urlObject = urlObjectList.list[i];
   var downloader = DownloaderFactory.create(urlObject, options);
+
   downloader.download(urlObject.origin);
 }
