@@ -15,7 +15,7 @@ function UrlObjectList(source) {
  */
 UrlObjectList.defaultSource = (function(){
   var html = new ActiveXObject('htmlfile');
-  return html.parentWindow.clipboardData.getData('text');
+  return html.parentWindow.clipboardData.getData('text') || '';
 })();
 
 /**
