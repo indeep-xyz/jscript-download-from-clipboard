@@ -71,4 +71,4 @@ Downloader.prototype.createOutputPath = function(url, tempSuffix) {
   }
 
   return path;
-}
+};
