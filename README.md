@@ -1,26 +1,40 @@
 download from clipboard
 ====
 
-## Installation
+Installation
+----
 
 Run _install.bat_ with administrator privileges.
 
 ### Caution
 
-This batch file rewrite the registry file.
+The batch file rewrites your registry data.
 
-Even if something trouble occurs developers and publishers  shall not bear any responsibility. Use at your own risk.
+Even if something trouble occurs developers and publishers shall not bear any responsibility. Use at your own risk.
 
-## Usage
+Usage
+----
 
-1. Set to clipboard the URL of the file that you want to download.
+1. Set URL which you want to download into your clipboard.
 2. Right-click at background in any folder.
-3. Choose the item of _"download from clipboard"_ in the context menu.
+3. Choose the item _"download from clipboard"_ in the context menu.
 
 Then, the file will be downloaded to the run folder.
 
-If the clipboard text is not downloadable, display the error message and exit.
+### note
 
-## AUTHOR
+- It downloads sequentially if your clipboard has string which is plural lines.
+- It displays an error message and exits if your clipboard text is not downloadable.
+
+EXT
+----
+
+### youtube-dl
+
+- Put it into _bin/EXT_ and you can download videos in YouTube.
+- The downloadable URLs are for video or playlist.
+
+Author
+----
 
 [indeep-xyz](http://indeep.xyz/)
