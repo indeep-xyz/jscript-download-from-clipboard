@@ -2,12 +2,10 @@
  * Download videos at YouTube from an URL argument.
  *
  * @class
- * @param  {UrlObject} urlObject             - An URL for downloading
- * @param  {object}    options               - Options for running
- * @param  {string}    options.youtubeDlPath - A path for the execution file of youtube-dl
+ * @param  {object} options               - Options for running
+ * @param  {string} options.youtubeDlPath - A path for the execution file of youtube-dl
  */
-function YoutubeVideoDownloader(urlObject, options) {
-  this.urlObject = urlObject;
+function YoutubeVideoDownloader(options) {
   this.pathYoutubeDl = options.youtubeDlPath || YoutubeDownloader.defaultPathYoutubeDl;
 }
 
@@ -17,11 +15,12 @@ function YoutubeVideoDownloader(urlObject, options) {
 YoutubeVideoDownloader.prototype = new YoutubeDownloader();
 
 /**
- * Download a video where is at this.urlObject.origin in YouTube.
+ * Download a video from YouTube.
  *
  * @method
+ * @param  {url} url - An URL for downloading
  */
-YoutubeVideoDownloader.prototype.download =  function(){
+YoutubeVideoDownloader.prototype.download =  function(url){
 
   // - - - - - - - - - - - - - - - - - - - - - -
   // private functions - in YoutubeVideoDownloader.download
@@ -51,7 +50,6 @@ YoutubeVideoDownloader.prototype.download =  function(){
   // - - - - - - - - - - - - - - - - - - - - - -
   // main - in YoutubeVideoDownloader.download
 
-  var url = this.urlObject.origin;
   var pathYoutubeDl = this.pathYoutubeDl;
 
   YoutubeDownloader.requireExeAvailable(pathYoutubeDl);

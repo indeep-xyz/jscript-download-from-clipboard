@@ -13,5 +13,5 @@ var urlObject  = new UrlObject(urlSource);
 
 if (urlObject.isUrl) {
   var downloader = DownloaderFactory.create(urlObject, options);
-  downloader.download();
+  downloader.download(urlObject.origin);
 }

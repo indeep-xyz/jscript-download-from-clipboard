@@ -20,17 +20,17 @@ var DownloaderFactory = function(){};
  */
 DownloaderFactory.create = function(urlObject, options) {
   if (YoutubeDownloader.isVideoUrl(urlObject)) {
-    return new YoutubeVideoDownloader(urlObject, options);
+    return new YoutubeVideoDownloader(options);
   }
   if (YoutubeDownloader.isPlaylistUrl(urlObject)) {
 
     WScript.Echo('youtube playlist: ' + urlObject.origin);
     WScript.Quit();
-    return new YoutubeDownloader(urlObject, options);
+    return new YoutubeDownloader(options);
   }
   else {
     // WScript.Echo('not youtube: ' + urlObject.origin);
     // WScript.Quit();
-    return new FileDownloader(urlObject, options.tempSuffix);
+    return new FileDownloader(options);
   }
 };

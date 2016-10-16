@@ -2,12 +2,11 @@
  * Download a file from an URL argument.
  *
  * @class
- * @param  {UrlObject} urlObject  - An URL for downloading
- * @param  {string}    tempSuffix - A suffix for a tempolary file at downloading
+ * @param  {object} options            - Options for running
+ * @param  {string} options.tempSuffix - A suffix for a tempolary file at downloading
  */
-function FileDownloader(urlObject, tempSuffix) {
-  this.urlObject = urlObject;
-  this.tempSuffix = tempSuffix;
+function FileDownloader(options) {
+  this.tempSuffix = options.tempSuffix;
 }
 
 /**
@@ -16,11 +15,12 @@ function FileDownloader(urlObject, tempSuffix) {
 FileDownloader.prototype = new Downloader();
 
 /**
- * Download a file where is at this.urlObject.origin.
+ * Download a file at the argument "url".
  *
  * @method
+ * @param  {url} url - An URL for downloading
  */
-FileDownloader.prototype.download =  function(){
+FileDownloader.prototype.download =  function(url){
 
   // - - - - - - - - - - - - - - - - - - - - - -
   // private functions - in FileDownloader.download
@@ -42,7 +42,6 @@ FileDownloader.prototype.download =  function(){
   // - - - - - - - - - - - - - - - - - - - - - -
   // main - in FileDownloader.download
 
-  var url        = this.urlObject.origin;
   var outputPath = this.createOutputPath(url, this.tempSuffix);
   var tempPath   = outputPath + this.tempSuffix;
 

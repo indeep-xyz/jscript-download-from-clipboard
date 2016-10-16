@@ -2,11 +2,8 @@
  * Download videos at YouTube from an URL argument.
  *
  * @class
- * @param  {UrlObject} urlObject  - An URL for downloading
- * @param  {string}    tempSuffix - A suffix for a tempolary file at downloading
  */
-function YoutubeDownloader(urlObject) {
-  this.urlObject = urlObject;
+function YoutubeDownloader() {
 }
 
 /**
