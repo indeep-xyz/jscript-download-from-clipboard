@@ -4,6 +4,7 @@
  * @class
  */
 function YoutubeDownloader() {
+
 }
 
 /**
@@ -134,7 +135,7 @@ YoutubeDownloader.isExeAvailable = function(path) {
  */
 YoutubeDownloader.requireExeAvailable = function(path) {
   if (!YoutubeDownloader.isExeAvailable(path)) {
-    WScript.Echo('Require youtube-dl to download video files in Youtube.');
+    WScript.Echo('Require youtube-dl to download video files from Youtube.');
     WScript.Quit(1);
   }
 };
