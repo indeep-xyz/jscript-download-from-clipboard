@@ -50,11 +50,19 @@ function UrlObject(origin) {
   // - - - - - - - - - - - - - - - - - - - - - -
   // private functions - others - in UrlObject
 
-  function errorParseUrl(str){
+  /**
+   * Raise an error.
+   *
+   * @private
+   * @method
+   * @param  {string} str - String for an URL
+   */
+  function failParsingUrl(str){
     WScript.Echo(
-        "error occurred while parsing the URL string.\n\n" +
+        "An error occurred while parsing by UrlObject.\n\n" +
         "str:\n" + str
         );
+    WScript.Quit(1);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - -
@@ -72,6 +80,6 @@ function UrlObject(origin) {
     this.hash = extractHash(origin);
   }
   else {
-    errorParseUrl(origin);
+    failParsingUrl(origin);
   }
 }
