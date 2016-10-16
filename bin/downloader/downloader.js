@@ -21,23 +21,6 @@ Downloader.prototype.createTempFile = function(path) {
 };
 
 /**
- * Raise an error message for writing.
- *
- * @method
- * @param  {string} url        - An URL for downloading
- * @param  {string} tempPath   - A path for a temporary file
- * @param  {string} outputPath - A path which you tried to write a file
- */
-Downloader.prototype.raiseError = function(url, tempPath, outputPath){
-  WScript.Echo(
-      "error occurred while downloading or saving file.\n\n" +
-      "url:\n"        + url + "\n\n" +
-      "tempPath:\n"   + tempPath   + "\n\n" +
-      "outputPath:\n" + outputPath
-      );
-};
-
-/**
  * Rename a file.
  *
  * @param  {string} src  - A path source

@@ -54,3 +54,21 @@ FileDownloader.prototype.download =  function(url){
     this.raiseError(url, tempPath, outputPath);
   }
 };
+
+/**
+ * Raise an error.
+ *
+ * @method
+ * @param  {string} url        - An URL for downloading
+ * @param  {string} tempPath   - A path for a temporary file
+ * @param  {string} outputPath - A path which you tried to write a file
+ */
+FileDownloader.prototype.raiseError = function(url, tempPath, outputPath){
+  WScript.Echo(
+      "An error occurred while processing by FileDownloader.\n\n" +
+      "url:\n"        + url + "\n\n" +
+      "tempPath:\n"   + tempPath   + "\n\n" +
+      "outputPath:\n" + outputPath
+      );
+  WScript.Quit(1);
+};

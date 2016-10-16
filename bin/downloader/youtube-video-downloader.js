@@ -61,3 +61,20 @@ YoutubeVideoDownloader.prototype.download =  function(url){
     this.raiseError(url);
   }
 };
+
+/**
+ * Raise an error.
+ *
+ * @method
+ * @param  {string} url        - An URL for downloading
+ * @param  {string} tempPath   - A path for a temporary file
+ * @param  {string} outputPath - A path which you tried to write a file
+ */
+YoutubeVideoDownloader.prototype.raiseError = function(url){
+  WScript.Echo(
+      "An error occurred while processing by YoutubeVideoDownloader.\n\n" +
+      "url:\n"             + url + "\n\n" +
+      "pathYoutubeDl:\n"   + this.pathYoutubeDl
+      );
+  WScript.Quit(1);
+};
