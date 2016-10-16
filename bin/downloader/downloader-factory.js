@@ -20,14 +20,13 @@ var DownloaderFactory = function(){};
  */
 DownloaderFactory.create = function(urlObject, options) {
   if (YoutubeDownloader.isVideoUrl(urlObject)) {
-    WScript.Echo('youtube video: ' + urlObject.origin);
-    WScript.Quit();
-    return new YoutubeDownloader(urlObject);
+    return new YoutubeVideoDownloader(urlObject, options);
   }
   if (YoutubeDownloader.isPlaylistUrl(urlObject)) {
+
     WScript.Echo('youtube playlist: ' + urlObject.origin);
     WScript.Quit();
-    return new YoutubeDownloader(urlObject);
+    return new YoutubeDownloader(urlObject, options);
   }
   else {
     // WScript.Echo('not youtube: ' + urlObject.origin);
