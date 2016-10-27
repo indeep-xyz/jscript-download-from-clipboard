@@ -2,7 +2,8 @@
  * Create an object to support an URL.
  *
  * @class
- * @param  [string] origin - Text for an URL
+ * @constructor
+ * @param  {string} origin - Text for an URL
  */
 function UrlObject(origin) {
 

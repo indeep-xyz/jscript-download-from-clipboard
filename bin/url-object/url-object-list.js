@@ -2,7 +2,8 @@
  * Manage a list of UrlObject.
  *
  * @class
- * @param  [string] source - Text for URLs
+ * @constructor
+ * @param  {string} source - Text for URLs
  */
 function UrlObjectList(source) {
   this.source = source || UrlObjectList.defaultSource;
@@ -10,8 +11,9 @@ function UrlObjectList(source) {
 }
 
 /**
+ * @public
  * @static
- * @var [string] Text in clipboard
+* @var {string} Text in clipboard
  */
 UrlObjectList.defaultSource = (function(){
   var html = new ActiveXObject('htmlfile');
@@ -21,10 +23,11 @@ UrlObjectList.defaultSource = (function(){
 /**
  * Create a list including UrlObject instances.
  *
+ * @public
  * @static
  * @method
- * @param  [string] source- Text for URLs
- * @retrun [Array] an array including UrlObject instances
+ * @param  {string} source- Text for URLs
+ * @retrun {Array} an array including UrlObject instances
  */
 UrlObjectList.creteList = function(source){
 
