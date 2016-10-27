@@ -1,6 +1,7 @@
 /**
  * Create a path to write a file.
  *
+ * @public
  * @method
  * @param  [string] url        - An URL for the downloading
  * @param  [string] tempSuffix - A local path for the temporary file at downloading
@@ -11,6 +12,14 @@ Downloader.prototype.createOutputPath = function(url, tempSuffix) {
   // - - - - - - - - - - - - - - - - - - - - - -
   // private functions - in Downloader#createOutputPath
 
+  /**
+   * Create an unique filename.
+   *
+   * @private
+   * @method
+   * @param  {string} url - The source for a filename
+   * @return {string} A filename
+   */
   function createFilename(url) {
     var filename = createBaseFilename(url);
 
@@ -21,6 +30,14 @@ Downloader.prototype.createOutputPath = function(url, tempSuffix) {
     return filename;
   }
 
+  /**
+   * Create a filename from an URL.
+   *
+   * @private
+   * @method
+   * @param  {string} url - The source for a filename
+   * @return {string} A filename
+   */
   function createBaseFilename(url) {
     var filename = url.replace(/^.+\/([^\?]+).*/, '$1');
 
@@ -35,6 +52,14 @@ Downloader.prototype.createOutputPath = function(url, tempSuffix) {
     return filename;
   }
 
+  /**
+   * Create a filename which has an unique number.
+   *
+   * @private
+   * @method
+   * @param  {string} filename - A filename
+   * @return {string} An unique filename in the directory for writing
+   */
   function createFilenameNumbered(filename) {
     var basename = filename;
     var ext      = '';
@@ -56,9 +81,17 @@ Downloader.prototype.createOutputPath = function(url, tempSuffix) {
     return '';
   }
 
-  function doesExist(filename) {
+  /**
+   * Check whether a file exists or not.
+   *
+   * @private
+   * @method
+   * @param  {string} path - A file path
+   * @return {string} True when the file exists, false when the file does not exist
+   */
+  function doesExist(path) {
     var fs = new ActiveXObject('Scripting.FileSystemObject');
-    return fs.FileExists(filename);
+    return fs.FileExists(path);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - -
