@@ -26,6 +26,13 @@ Then, the file will be downloaded to the run folder.
 - It downloads sequentially if your clipboard has string which is plural lines.
 - It displays an error message and exits if your clipboard text is not downloadable.
 
+Options
+----
+
+You can use your own options for this tool.
+
+Please rename _bin/main-options.js.template_ into _bin/main-options.js_ and rewrite configurations in the file.
+
 EXT
 ----
 
