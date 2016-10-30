@@ -3,13 +3,29 @@
  */
 
 /**
- * The options for main.wsf of download-from-clipboard.
- * @type {Object}
- */
-var options = {};
-
-/**
- * The default suffix of temporary file names used by FileDownloader.
+ * The default suffix of temporary file names.
+ *
+ * @see FileDownloader
+ * @see FileDownloader.defaultTempSuffix
  * @type {string}
  */
-options.tempSuffix = ' (downloading)';
+// options.tempSuffix = ' (downloading)';
+
+/**
+ * The path of youtube-dl.exe.
+ *
+ * @see YoutubeDownloader
+ * @see YoutubeDownloader.defaultPathYoutubeDl
+ * @type {string}
+ */
+// options.youtubeDlPath = 'FULL PATH OF youtube-dl.exe';
+
+/**
+ * The format of path which youtube-dl downloads videos
+ * in a playlist and write to.
+ *
+ * @see YoutubePlaylistDownloader
+ * @see YoutubePlaylistDownloader.defaultOutputPath
+ * @type {string}
+ */
+// options.youtubePlaylistOutputPath = '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s';
