@@ -6,13 +6,20 @@
  * @param  {string} options.tempSuffix - A suffix for a tempolary file at downloading
  */
 function FileDownloader(options) {
-  this.tempSuffix = options.tempSuffix;
+  this.tempSuffix = options.tempSuffix || FileDownloader.defaultTempSuffix;
 }
 
 /**
  * @extends {Downloader}
  */
 FileDownloader.prototype = new Downloader();
+
+/**
+ * @public
+ * @static
+ * @var {string} The default suffix of temporary file names at downloading.
+ */
+FileDownloader.defaultTempSuffix = ' (downloading)';
 
 /**
  * Download a file at the argument "url".
