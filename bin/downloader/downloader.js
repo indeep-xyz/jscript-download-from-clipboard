@@ -1,13 +1,15 @@
 /**
- * A class to download a file.
+ * This class downloads a file.
  *
  * @class
+ * @constructor
  */
 var Downloader = function(){};
 
 /**
  * Create a temprary file.
  *
+ * @public
  * @method
  * @param  {string} path - A path for a temporary file
  */
@@ -23,6 +25,8 @@ Downloader.prototype.createTempFile = function(path) {
 /**
  * Rename a file.
  *
+ * @public
+ * @method
  * @param  {string} src  - A path source
  * @param  {string} dest - A path of destination
  */
