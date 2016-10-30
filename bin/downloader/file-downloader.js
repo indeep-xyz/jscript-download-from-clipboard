@@ -1,7 +1,8 @@
 /**
- * Download a file from an URL argument.
+ * This class downloads a file.
  *
  * @class
+ * @constructor
  * @param  {object} options            - Options for running
  * @param  {string} options.tempSuffix - A suffix for a tempolary file at downloading
  */
@@ -24,13 +25,13 @@ FileDownloader.defaultTempSuffix = ' (downloading)';
 /**
  * Download a file at the argument "url".
  *
+ * @public
  * @method
  * @param  {url} url - An URL for downloading
  */
 FileDownloader.prototype.download =  function(url){
-
   // - - - - - - - - - - - - - - - - - - - - - -
-  // private functions - in FileDownloader.download
+  // private functions - in FileDownloader.prototype.download
 
   function run(url, path) {
     var http                  = WScript.CreateObject('Msxml2.XMLHTTP');
@@ -47,7 +48,7 @@ FileDownloader.prototype.download =  function(url){
   }
 
   // - - - - - - - - - - - - - - - - - - - - - -
-  // main - in FileDownloader.download
+  // main - in FileDownloader.prototype.download
 
   var outputPath = this.createOutputPath(url, this.tempSuffix);
   var tempPath   = outputPath + this.tempSuffix;
@@ -65,6 +66,7 @@ FileDownloader.prototype.download =  function(url){
 /**
  * Raise an error.
  *
+ * @public
  * @method
  * @param  {string} url        - An URL for downloading
  * @param  {string} tempPath   - A path for a temporary file
