@@ -4,3 +4,6 @@
 # External files
 /bin/EXT
 !/bin/EXT/.gitkeep
+
+# Option files
+/bin/*-options.js
