@@ -2,6 +2,7 @@
  * Download videos from YouTube.
  *
  * @class
+ * @constructor
  */
 var YoutubeDownloader = function(){};
 
@@ -11,6 +12,7 @@ var YoutubeDownloader = function(){};
 YoutubeDownloader.prototype = new Downloader();
 
 /**
+ * @public
  * @static
  * @var {string} the default path for youtube-dl.
  */
@@ -22,6 +24,7 @@ YoutubeDownloader.defaultPathYoutubeDl = (function(){
 /**
  * Check whether the argument URL is a video or a playlist at YouTube or not.
  *
+ * @public
  * @static
  * @method
  * @param  {UrlObject} urlObject - An URL for downloading
@@ -35,13 +38,13 @@ YoutubeDownloader.isUrl = function(urlObject) {
 /**
  * Check whether the argument URL is a video in YouTube or not.
  *
+ * @public
  * @static
  * @method
  * @param  {UrlObject} urlObject - An URL for downloading
  * @return {boolean}   Return true if the URL is a video in YouTube
  */
 YoutubeDownloader.isVideoUrl = function(urlObject) {
-
   // - - - - - - - - - - - - - - - - - - - - - -
   // private functions - in YoutubeDownloader.isVideoUrl
 
@@ -80,13 +83,13 @@ YoutubeDownloader.isVideoUrl = function(urlObject) {
 /**
  * Check whether the argument URL is a playlist in YouTube or not.
  *
+ * @public
  * @static
  * @method
  * @param  {UrlObject} urlObject - An URL for downloading
  * @return {boolean}   Return true if the URL is a playlist in YouTube
  */
 YoutubeDownloader.isPlaylistUrl = function(urlObject) {
-
   // - - - - - - - - - - - - - - - - - - - - - -
   // private functions - in YoutubeDownloader.isPlaylistUrl
 
@@ -112,6 +115,7 @@ YoutubeDownloader.isPlaylistUrl = function(urlObject) {
 /**
  * Check whether the execution file is available or not.
  *
+ * @public
  * @static
  * @method
  * @param  {string}  path - A path for the execution file of youtube-dl
@@ -127,6 +131,7 @@ YoutubeDownloader.isExeAvailable = function(path) {
 /**
  * Require the execution file is available.
  *
+ * @public
  * @static
  * @method
  * @param  {string} path - A path for the execution file of youtube-dl
