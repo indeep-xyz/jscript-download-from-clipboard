@@ -2,6 +2,7 @@
  * Download videos from YouTube.
  *
  * @class
+ * @constructor
  * @param  {object} options               - Options for running
  * @param  {string} options.youtubeDlPath - A path for the execution file of youtube-dl
  */
@@ -17,13 +18,13 @@ YoutubeVideoDownloader.prototype = new YoutubeDownloader();
 /**
  * Download a video from YouTube.
  *
+ * @public
  * @method
  * @param  {url} url - An URL of a video
  */
 YoutubeVideoDownloader.prototype.download =  function(url){
-
   // - - - - - - - - - - - - - - - - - - - - - -
-  // private functions - in YoutubeVideoDownloader.download
+  // private functions - in YoutubeVideoDownloader.prototype.download
 
   /**
    * Run youtube-dl for getting a video file.
@@ -49,7 +50,7 @@ YoutubeVideoDownloader.prototype.download =  function(url){
   }
 
   // - - - - - - - - - - - - - - - - - - - - - -
-  // main - in YoutubeVideoDownloader.download
+  // main - in YoutubeVideoDownloader.prototype.download
 
   var self = this;
   YoutubeDownloader.requireExeAvailable(this.pathYoutubeDl);
@@ -65,6 +66,7 @@ YoutubeVideoDownloader.prototype.download =  function(url){
 /**
  * Raise an error.
  *
+ * @public
  * @method
  * @param  {string} url - An URL for downloading
  */
