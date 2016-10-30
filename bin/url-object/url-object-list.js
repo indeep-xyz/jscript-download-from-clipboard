@@ -13,7 +13,7 @@ function UrlObjectList(source) {
 /**
  * @public
  * @static
-* @var {string} Text in clipboard
+ * @var {string} Text in clipboard
  */
 UrlObjectList.defaultSource = (function(){
   var html = new ActiveXObject('htmlfile');
