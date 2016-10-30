@@ -1,0 +1,15 @@
+/**
+ * Rename to main-options.js and you can use your original options.
+ */
+
+/**
+ * The options for main.wsf of download-from-clipboard.
+ * @type {Object}
+ */
+var options = {};
+
+/**
+ * The default suffix of temporary file names used by FileDownloader.
+ * @type {string}
+ */
+options.tempSuffix = ' (downloading)';

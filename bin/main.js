@@ -1,13 +1,4 @@
-// - - - - - - - - - - - - - - - - - - - - - -
-// options
-
-var options = {
-  tempSuffix: ' (downloading)'
-};
-
-// - - - - - - - - - - - - - - - - - - - - - -
-// main
-
+var options = OptionLoader.load('main-options.js');
 var urlObjectList = new UrlObjectList();
 
 for (var i = 0; i < urlObjectList.list.length; i++) {
