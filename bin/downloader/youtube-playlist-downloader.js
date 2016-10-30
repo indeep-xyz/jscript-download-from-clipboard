@@ -1,7 +1,8 @@
 /**
- * Download videos in playlists from YouTube.
+ * Download videos in playlist from YouTube.
  *
  * @class
+ * @constructor
  * @param  {object} options               - Options for running
  * @param  {string} options.youtubeDlPath - A path for the execution file of youtube-dl
  * @param  {string} options.youtubePlaylistOutputPath - A format to output files by youtube-dl
@@ -17,8 +18,9 @@ function YoutubePlaylistDownloader(options) {
 YoutubePlaylistDownloader.prototype = new YoutubeDownloader();
 
 /**
+ * @public
  * @static
- * @var {string} The default path for downloading videos in playlist by youtube-dl.
+ * @var {string} The default format of path which youtube-dl downloads videos in a playlist and write to.
  */
 YoutubePlaylistDownloader.defaultOutputPath = (function(){
   return '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s';
@@ -27,13 +29,13 @@ YoutubePlaylistDownloader.defaultOutputPath = (function(){
 /**
  * Download videos in a playlist from YouTube.
  *
+ * @public
  * @method
  * @param  {url} url - An URL of a playlist
  */
 YoutubePlaylistDownloader.prototype.download =  function(url){
-
   // - - - - - - - - - - - - - - - - - - - - - -
-  // private functions - in YoutubePlaylistDownloader.download
+  // private functions - in YoutubePlaylistDownloader.prototype.download
 
   /**
    * Run youtube-dl for getting a video file.
@@ -59,7 +61,7 @@ YoutubePlaylistDownloader.prototype.download =  function(url){
   }
 
   // - - - - - - - - - - - - - - - - - - - - - -
-  // main - in YoutubePlaylistDownloader.download
+  // main - in YoutubePlaylistDownloader.prototype.download
 
   var self = this;
   YoutubeDownloader.requireExeAvailable(self.pathYoutubeDl);
@@ -75,6 +77,7 @@ YoutubePlaylistDownloader.prototype.download =  function(url){
 /**
  * Raise an error.
  *
+ * @public
  * @method
  * @param  {string} url - An URL for downloading
  */
