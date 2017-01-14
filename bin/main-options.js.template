@@ -29,3 +29,11 @@
  * @type {string}
  */
 // options.youtubePlaylistOutputPath = '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s';
+
+/**
+ * The path of a sound file used for notification
+ * in finishing download tasks completely.
+ *
+ * @type {string}
+ */
+// options.soundAtCompleted = 'C:\\Windows\\Media\\notify.wav';
