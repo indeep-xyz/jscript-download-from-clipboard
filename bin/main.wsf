@@ -14,6 +14,9 @@
     <script language="JavaScript" src="url-object/url-object.js"></script>
     <script language="JavaScript" src="url-object/url-object-list.js"></script>
 
+    <!-- SoundIndicator -->
+    <script language="JavaScript" src="sound-indicator/sound-indicator.js"></script>
+
     <!-- OptionLoader -->
     <script language="JavaScript" src="option-loader/option-loader.js"></script>
 
