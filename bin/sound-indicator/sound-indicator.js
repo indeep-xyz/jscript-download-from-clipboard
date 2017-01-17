@@ -7,7 +7,7 @@
  * @param  {string} options.soundAtCompleted - A path of a sound file to indicate.
  */
 function SoundIndicator(options) {
-  this.soundFilePath = options.soundAtCompleted;
+  this.soundAtCompleted = options.soundAtCompleted;
 }
 
 /**
@@ -15,7 +15,7 @@ function SoundIndicator(options) {
  * @static
  * @type {string} The defalut path of a sound file.
  */
-SoundIndicator.prototype.soundFilePath = '';
+SoundIndicator.prototype.soundAtCompleted = '';
 
 /**
  * Play sound file.
@@ -23,8 +23,9 @@ SoundIndicator.prototype.soundFilePath = '';
  * @public
  * @static
  * @method
+ * @param  {string} path - A path expected as a sound file.
  */
-SoundIndicator.prototype.playSound = function() {
+SoundIndicator.prototype.playSound = function(path) {
   // - - - - - - - - - - - - - - - - - - - - - -
   // private functions - in SoundIndicator.prototype.playSound
 
@@ -60,9 +61,18 @@ SoundIndicator.prototype.playSound = function() {
   // - - - - - - - - - - - - - - - - - - - - - -
   // main - in SoundIndicator.prototype.playSound
 
-  var path = this.soundFilePath;
-
   if (doesExist(path)) {
     play(path);
   }
+};
+
+/**
+ * Play sound file at downloading completed.
+ *
+ * @public
+ * @static
+ * @method
+ */
+SoundIndicator.prototype.playSoundAtCompleted = function() {
+  this.playSound(this.soundAtCompleted);
 };
