@@ -49,11 +49,11 @@ SoundIndicator.prototype.playSound = function(path) {
    * @param  {string} path - A path expected as a sound file.
    */
   function play(path) {
-    var player = WScript.CreateObject("MediaPlayer.MediaPlayer");
-    player.FileName = path;
-    player.Play();
+    var player = WScript.CreateObject("WMPlayer.OCX");
+    player.URL = path;
+    player.controls.play();
 
-    while(player.PlayState !== 0){
+    while(player.PlayState !== 1){
       WScript.Sleep(500);
     }
   }
