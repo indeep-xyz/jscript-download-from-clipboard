@@ -37,3 +37,11 @@
  * @type {string}
  */
 // options.soundAtCompleted = 'C:\\Windows\\Media\\notify.wav';
+
+/**
+ * Sound volume when playing media file.
+ * The range is between 0 and 100.
+ *
+ * @type {numeber}
+ */
+// options.soundVolume = 50;
