@@ -5,9 +5,11 @@
  * @constructor
  * @param  {object} options                  - Options for indication with sound.
  * @param  {string} options.soundAtCompleted - A path of a sound file to indicate.
+ * @param  {string} options.soundVolume - Sound volume when playing media file.
  */
 function SoundIndicator(options) {
   this.soundAtCompleted = options.soundAtCompleted;
+  this.soundVolume = options.soundVolume;
 }
 
 /**
@@ -16,6 +18,13 @@ function SoundIndicator(options) {
  * @type {string} The defalut path of a sound file.
  */
 SoundIndicator.prototype.soundAtCompleted = '';
+
+/**
+ * @public
+ * @static
+ * @type {number} Sound volume when playing media file.
+ */
+SoundIndicator.prototype.soundVolume = 100;
 
 /**
  * Play sound file.
@@ -48,8 +57,13 @@ SoundIndicator.prototype.playSound = function(path) {
    * @method
    * @param  {string} path - A path expected as a sound file.
    */
-  function play(path) {
+  function play(path, volume) {
     var player = WScript.CreateObject("WMPlayer.OCX");
+
+    if (typeof volume === 'number') {
+      player.settings.volume = volume;
+    }
+
     player.URL = path;
     player.controls.play();
 
@@ -62,7 +76,7 @@ SoundIndicator.prototype.playSound = function(path) {
   // main - in SoundIndicator.prototype.playSound
 
   if (doesExist(path)) {
-    play(path);
+    play(path, this.soundVolume);
   }
 };
 
