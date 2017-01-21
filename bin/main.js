@@ -8,5 +8,5 @@ for (var i = 0; i < urlObjectList.list.length; i++) {
   downloader.download(urlObject.origin);
 }
 
-var soundIndicator = new SoundIndicator(options);
-soundIndicator.playSoundAtCompleted();
+var soundNotifier = new SoundNotifier(options);
+soundNotifier.playSoundAtCompleted();

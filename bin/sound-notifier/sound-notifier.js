@@ -7,7 +7,7 @@
  * @param  {string} options.soundAtCompleted - A path of a sound file to indicate.
  * @param  {string} options.soundVolume - Sound volume when playing media file.
  */
-function SoundIndicator(options) {
+function SoundNotifier(options) {
   this.soundAtCompleted = options.soundAtCompleted;
   this.soundVolume = options.soundVolume;
 }
@@ -17,14 +17,14 @@ function SoundIndicator(options) {
  * @static
  * @type {string} The defalut path of a sound file.
  */
-SoundIndicator.prototype.soundAtCompleted = '';
+SoundNotifier.prototype.soundAtCompleted = '';
 
 /**
  * @public
  * @static
  * @type {number} Sound volume when playing media file.
  */
-SoundIndicator.prototype.soundVolume = 100;
+SoundNotifier.prototype.soundVolume = 100;
 
 /**
  * Play sound file.
@@ -34,9 +34,9 @@ SoundIndicator.prototype.soundVolume = 100;
  * @method
  * @param  {string} path - A path expected as a sound file.
  */
-SoundIndicator.prototype.playSound = function(path) {
+SoundNotifier.prototype.playSound = function(path) {
   // - - - - - - - - - - - - - - - - - - - - - -
-  // private functions - in SoundIndicator.prototype.playSound
+  // private functions - in SoundNotifier.prototype.playSound
 
   /**
    * Check whether a file is at the argument path.
@@ -73,7 +73,7 @@ SoundIndicator.prototype.playSound = function(path) {
   }
 
   // - - - - - - - - - - - - - - - - - - - - - -
-  // main - in SoundIndicator.prototype.playSound
+  // main - in SoundNotifier.prototype.playSound
 
   if (doesExist(path)) {
     play(path, this.soundVolume);
@@ -87,6 +87,6 @@ SoundIndicator.prototype.playSound = function(path) {
  * @static
  * @method
  */
-SoundIndicator.prototype.playSoundAtCompleted = function() {
+SoundNotifier.prototype.playSoundAtCompleted = function() {
   this.playSound(this.soundAtCompleted);
 };
