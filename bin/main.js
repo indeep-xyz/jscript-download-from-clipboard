@@ -9,4 +9,4 @@ for (var i = 0; i < urlObjectList.list.length; i++) {
 }
 
 var soundNotifier = new SoundNotifier(options);
-soundNotifier.playSoundAtCompleted();
+soundNotifier.notifyAtComplete();

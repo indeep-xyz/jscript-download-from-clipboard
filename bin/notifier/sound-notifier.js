@@ -1,10 +1,10 @@
 /**
- * This class supports to indicate with sound.
+ * This class supports to notify with sound.
  *
  * @class
  * @constructor
- * @param  {object} options                  - Options for indication with sound.
- * @param  {string} options.soundAtCompleted - A path of a sound file to indicate.
+ * @param  {object} options                  - Options for notification with sound.
+ * @param  {string} options.soundAtCompleted - A path of a sound file to notify.
  * @param  {string} options.soundVolume - Sound volume when playing media file.
  */
 function SoundNotifier(options) {
@@ -13,9 +13,14 @@ function SoundNotifier(options) {
 }
 
 /**
+ * @extends {Notifier}
+ */
+SoundNotifier.prototype = new Notifier();
+
+/**
  * @public
  * @static
- * @type {string} The defalut path of a sound file.
+ * @type {string} A path of a sound file.
  */
 SoundNotifier.prototype.soundAtCompleted = '';
 
@@ -27,14 +32,14 @@ SoundNotifier.prototype.soundAtCompleted = '';
 SoundNotifier.prototype.soundVolume = 100;
 
 /**
- * Play sound file.
+ * Notify with sound file.
  *
  * @public
  * @static
  * @method
  * @param  {string} path - A path expected as a sound file.
  */
-SoundNotifier.prototype.playSound = function(path) {
+SoundNotifier.prototype.notifyWithSound = function(path) {
   // - - - - - - - - - - - - - - - - - - - - - -
   // private functions - in SoundNotifier.prototype.playSound
 
@@ -81,12 +86,12 @@ SoundNotifier.prototype.playSound = function(path) {
 };
 
 /**
- * Play sound file at downloading completed.
+ * Notify at finishing downloading files completely.
  *
  * @public
  * @static
  * @method
  */
-SoundNotifier.prototype.playSoundAtCompleted = function() {
-  this.playSound(this.soundAtCompleted);
+SoundNotifier.prototype.notifyAtComplete = function() {
+  this.notifyWithSound(this.soundAtCompleted);
 };
