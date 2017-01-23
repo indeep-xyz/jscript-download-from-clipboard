@@ -36,7 +36,7 @@
  *
  * @type {string}
  */
-// options.soundAtCompleted = 'C:\\Windows\\Media\\notify.wav';
+// options.soundAtComplete = 'C:\\Windows\\Media\\notify.wav';
 
 /**
  * Sound volume when playing media file.

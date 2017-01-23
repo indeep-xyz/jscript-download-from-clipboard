@@ -3,12 +3,12 @@
  *
  * @class
  * @constructor
- * @param  {object} options                  - Options for notification with sound.
- * @param  {string} options.soundAtCompleted - A path of a sound file to notify.
- * @param  {string} options.soundVolume - Sound volume when playing media file.
+ * @param  {object} options                 - Options for notification with sound.
+ * @param  {string} options.soundAtComplete - A path of a sound file to notify.
+ * @param  {string} options.soundVolume     - Sound volume when playing media file.
  */
 function SoundNotifier(options) {
-  this.soundAtCompleted = options.soundAtCompleted;
+  this.soundAtComplete = options.soundAtComplete;
   this.soundVolume = options.soundVolume;
 }
 
@@ -22,7 +22,7 @@ SoundNotifier.prototype = new Notifier();
  * @static
  * @type {string} A path of a sound file.
  */
-SoundNotifier.prototype.soundAtCompleted = '';
+SoundNotifier.prototype.soundAtComplete = '';
 
 /**
  * @public
@@ -61,6 +61,7 @@ SoundNotifier.prototype.notifyWithSound = function(path) {
    * @private
    * @method
    * @param  {string} path - A path expected as a sound file.
+   * @param  {number} volume - Sound volume when playing media file.
    */
   function play(path, volume) {
     var player = WScript.CreateObject("WMPlayer.OCX");
@@ -93,5 +94,5 @@ SoundNotifier.prototype.notifyWithSound = function(path) {
  * @method
  */
 SoundNotifier.prototype.notifyAtComplete = function() {
-  this.notifyWithSound(this.soundAtCompleted);
+  this.notifyWithSound(this.soundAtComplete);
 };
