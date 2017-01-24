@@ -8,5 +8,5 @@ for (var i = 0; i < urlObjectList.list.length; i++) {
   downloader.download(urlObject.origin);
 }
 
-var soundNotifier = new SoundNotifier(options);
+var soundNotifier = NotifierFactory.create(options);
 soundNotifier.notifyAtComplete();
