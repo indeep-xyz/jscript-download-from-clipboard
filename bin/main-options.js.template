@@ -45,3 +45,11 @@
  * @type {numeber}
  */
 // options.soundVolume = 50;
+
+/**
+ * Message used for voice notification
+ * when finishing tasks completely.
+ *
+ * @type {string}
+ */
+options.voiceAtComplete = 'Downloading completes.';
