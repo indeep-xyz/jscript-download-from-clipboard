@@ -15,15 +15,17 @@ var NotifierFactory = function(){};
  * @param  {object}    options                 - Options for notification.
  * @param  {string}    options.soundAtComplete - A path of a sound file to notify.
  * @param  {string}    options.soundVolume     - Sound volume when playing media file.
+ * @param  {string}    options.voiceAtComplete - Message used for voice notification when finishing tasks completely.
  * @return {Notifier} An instance of Notifier classes.
  */
 NotifierFactory.create = function(options) {
   if (typeof options.soundAtComplete === 'string') {
     return new SoundNotifier(options);
   }
-  else {
-    // WScript.Echo('not youtube: ' + urlObject.origin);
-    // WScript.Quit();
-    return new Notifier(options);
+
+  if (typeof options.voiceAtComplete === 'string') {
+    return new VoiceNotifier(options);
   }
+
+  return new Notifier(options);
 };

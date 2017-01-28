@@ -34,6 +34,9 @@
  * The path of a sound file used for notification
  * in finishing download tasks completely.
  *
+ * Assigining this option,
+ * the voice notification will be disabled.
+ *
  * @type {string}
  */
 // options.soundAtComplete = 'C:\\Windows\\Media\\notify.wav';
@@ -49,6 +52,9 @@
 /**
  * Message used for voice notification
  * when finishing tasks completely.
+ *
+ * Assigining the option named "soundAtComplete",
+ * the voice notification will be disabled.
  *
  * @type {string}
  */
