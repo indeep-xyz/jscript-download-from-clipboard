@@ -43,9 +43,39 @@ VoiceNotifier.prototype.notifyWithVoice = function(message) {
   // - - - - - - - - - - - - - - - - - - - - - -
   // private functions - in VoiceNotifier.prototype.notifyWithVoice
 
+  /**
+   * Check message text is valid.
+   *
+   * @private
+   * @method
+   * @param  {string} message - Message used for voice notification.
+   */
+  function isValid(message) {
+    return typeof message === 'string' &&
+        0 < message.length;
+  }
+
+  /**
+   * Play a sound file at the argument path.
+   *
+   * @private
+   * @method
+   * @param  {string} message - Message used for voice notification.
+   * @param  {number} volume  - Sound volume when playing media file.
+   */
+  function play(message, volume) {
+    var spVoice = WScript.CreateObject('SAPI.SpVoice');
+
+    spVoice.speak(message);
+    spVoice.waitUntilDone(-1);
+  }
+
   // - - - - - - - - - - - - - - - - - - - - - -
   // main - in VoiceNotifier.prototype.notifyWithVoice
 
+  if (isValid(message)) {
+    play(message, this.soundVolume);
+  }
 };
 
 /**
