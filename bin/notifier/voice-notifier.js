@@ -66,6 +66,10 @@ VoiceNotifier.prototype.notifyWithVoice = function(message) {
   function play(message, volume) {
     var spVoice = WScript.CreateObject('SAPI.SpVoice');
 
+    if (typeof volume === 'number') {
+      spVoice.volume = volume;
+    }
+
     spVoice.speak(message);
     spVoice.waitUntilDone(-1);
   }
