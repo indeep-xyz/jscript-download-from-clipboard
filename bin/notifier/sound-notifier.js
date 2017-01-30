@@ -41,7 +41,7 @@ SoundNotifier.prototype.soundVolume = 100;
  */
 SoundNotifier.prototype.notifyWithSound = function(path) {
   // - - - - - - - - - - - - - - - - - - - - - -
-  // private functions - in SoundNotifier.prototype.playSound
+  // private functions - in SoundNotifier.prototype.notifyWithSound
 
   /**
    * Check whether a file is at the argument path.
@@ -60,7 +60,7 @@ SoundNotifier.prototype.notifyWithSound = function(path) {
    *
    * @private
    * @method
-   * @param  {string} path - A path expected as a sound file.
+   * @param  {string} path   - A path expected as a sound file.
    * @param  {number} volume - Sound volume when playing media file.
    */
   function play(path, volume) {
@@ -79,7 +79,7 @@ SoundNotifier.prototype.notifyWithSound = function(path) {
   }
 
   // - - - - - - - - - - - - - - - - - - - - - -
-  // main - in SoundNotifier.prototype.playSound
+  // main - in SoundNotifier.prototype.notifyWithSound
 
   if (doesExist(path)) {
     play(path, this.soundVolume);
