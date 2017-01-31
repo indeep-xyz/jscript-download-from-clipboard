@@ -24,12 +24,10 @@ DownloaderFactory.create = function(urlObject, options) {
   if (YoutubeDownloader.isVideoUrl(urlObject)) {
     return new YoutubeVideoDownloader(options);
   }
+
   if (YoutubeDownloader.isPlaylistUrl(urlObject)) {
     return new YoutubePlaylistDownloader(options);
   }
-  else {
-    // WScript.Echo('not youtube: ' + urlObject.origin);
-    // WScript.Quit();
-    return new FileDownloader(options);
-  }
+
+  return new FileDownloader(options);
 };
