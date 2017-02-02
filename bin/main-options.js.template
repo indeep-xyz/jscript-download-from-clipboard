@@ -59,3 +59,17 @@
  * @type {string}
  */
 // options.voiceAtComplete = 'Downloading completes.';
+
+/**
+ * Message used for voice notification
+ * when finishing downloading a file.
+ *
+ * [Replacement]
+ *
+ * %C
+ *   Counting down every finishing downloading a file
+ *   when downloading multiple files.
+ *
+ * @type {string}
+ */
+// options.voiceAtDownload = "%C";
