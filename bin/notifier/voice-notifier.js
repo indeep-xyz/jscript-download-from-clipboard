@@ -5,10 +5,12 @@
  * @constructor
  * @param  {object} options                 - Options for notification with sound.
  * @param  {string} options.voiceAtComplete - Message used for voice notification when finishing tasks completely.
+ * @param  {string} options.voiceAtDownload - Message used for voice notification when finishing a file.
  * @param  {string} options.soundVolume     - Sound volume when playing media file.
  */
 function VoiceNotifier(options) {
   this.voiceAtComplete = options.voiceAtComplete;
+  this.voiceAtDownload = options.voiceAtDownload;
   this.soundVolume = options.soundVolume;
 }
 
@@ -23,6 +25,13 @@ VoiceNotifier.prototype = new Notifier();
  * @type {string} Message used for voice notification when finishing tasks completely.
  */
 VoiceNotifier.prototype.voiceAtComplete = '';
+
+/**
+ * @public
+ * @static
+ * @type {string} Message used for voice notification when finishing a file.
+ */
+VoiceNotifier.prototype.voiceAtDownload = '';
 
 /**
  * @public
@@ -91,4 +100,25 @@ VoiceNotifier.prototype.notifyWithVoice = function(message) {
  */
 VoiceNotifier.prototype.notifyAtComplete = function() {
   this.notifyWithVoice(this.voiceAtComplete);
+};
+
+/**
+ * Notify at finishing downloading a file.
+ *
+ * @public
+ * @static
+ * @method
+ * @param {object} replacement           - Replacement for notification message.
+ * @param {number} replacement.countDown
+ *     - Counting down every finishing downloading a file when downloading multiple files.
+ */
+VoiceNotifier.prototype.notifyAtDownload = function(replacement) {
+  var message = this.voiceAtDownload;
+
+  if (typeof replacement.countDown !== 'object' &&
+      replacement.countDown > 0) {
+    message = message.replace(/%C/g, replacement.countDown);
+  }
+
+  this.notifyWithVoice(message);
 };
