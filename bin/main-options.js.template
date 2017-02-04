@@ -58,7 +58,7 @@
  *
  * @type {string}
  */
-// options.voiceAtComplete = 'Downloading completes.';
+// options.voiceAtComplete = 'All Downloaded.';
 
 /**
  * Message used for voice notification
