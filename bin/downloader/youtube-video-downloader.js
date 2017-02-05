@@ -7,7 +7,7 @@
  * @param  {string} options.youtubeDlPath - A path for the execution file of youtube-dl
  */
 function YoutubeVideoDownloader(options) {
-  this.pathYoutubeDl = options.youtubeDlPath || YoutubeDownloader.defaultPathYoutubeDl;
+  this.pathYoutubeDl = options.youtubeDlPath || YoutubeDownloader.DEFAULT_PATH_YOUTUBE_DL;
 }
 
 /**
