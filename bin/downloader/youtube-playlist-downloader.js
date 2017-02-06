@@ -8,8 +8,8 @@
  * @param  {string} options.youtubePlaylistOutputPath - A format to output files by youtube-dl
  */
 function YoutubePlaylistDownloader(options) {
-  this.pathYoutubeDl = options.youtubeDlPath || YoutubeDownloader.defaultPathYoutubeDl;
-  this.outputPath = options.youtubePlaylistOutputPath || YoutubePlaylistDownloader.defaultOutputPath;
+  this.pathYoutubeDl = options.youtubeDlPath || YoutubeDownloader.DEFAULT_PATH_YOUTUBE_DL;
+  this.outputPath = options.youtubePlaylistOutputPath || YoutubePlaylistDownloader.DEFAULT_OUTPUT_PATH;
 }
 
 /**
@@ -22,7 +22,7 @@ YoutubePlaylistDownloader.prototype = new YoutubeDownloader();
  * @static
  * @var {string} The default format of path which youtube-dl downloads videos in a playlist and write to.
  */
-YoutubePlaylistDownloader.defaultOutputPath = (function(){
+YoutubePlaylistDownloader.DEFAULT_OUTPUT_PATH = (function(){
   return '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s';
 })();
 
