@@ -14,9 +14,9 @@ YoutubeDownloader.prototype = new Downloader();
 /**
  * @public
  * @static
- * @var {string} the default path for youtube-dl.
+ * @type {string} the default path for youtube-dl.
  */
-YoutubeDownloader.defaultPathYoutubeDl = (function(){
+YoutubeDownloader.DEFAULT_PATH_YOUTUBE_DL = (function(){
   var binDir = WScript.ScriptFullName.match(/(^.+[\\\/])/)[0];
   return binDir + 'EXT/youtube-dl.exe';
 })();
@@ -123,7 +123,7 @@ YoutubeDownloader.isPlaylistUrl = function(urlObject) {
  */
 YoutubeDownloader.isExeAvailable = function(path) {
   var fs = new ActiveXObject('Scripting.FileSystemObject');
-  path = path || YoutubeDownloader.defaultPathYoutubeDl;
+  path = path || YoutubeDownloader.DEFAULT_PATH_YOUTUBE_DL;
 
   return fs.FileExists(path);
 };
