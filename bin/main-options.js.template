@@ -37,6 +37,7 @@
  * Assigining this option,
  * the voice notification will be disabled.
  *
+ * @see SoundNotifier
  * @type {string}
  */
 // options.soundAtComplete = 'C:\\Windows\\Media\\notify.wav';
@@ -45,6 +46,8 @@
  * Sound volume when playing media file.
  * The range is between 0 and 100.
  *
+ * @see SoundNotifier
+ * @see VoiceNotifier
  * @type {numeber}
  */
 // options.soundVolume = 50;
@@ -56,6 +59,7 @@
  * Assigining the option named "soundAtComplete",
  * the voice notification will be disabled.
  *
+ * @see VoiceNotifier
  * @type {string}
  */
 // options.voiceAtComplete = 'All Downloaded.';
@@ -70,6 +74,7 @@
  *   Counting down every finishing downloading a file
  *   when downloading multiple files.
  *
+ * @see VoiceNotifier
  * @type {string}
  */
 // options.voiceAtDownload = "%C";
