@@ -78,3 +78,17 @@
  * @type {string}
  */
 // options.voiceAtDownload = "%C";
+
+/**
+ * Message used for dialog notification
+ * when finishing tasks completely.
+ *
+ * [Replacement]
+ *
+ * %n
+ *   Number of files to be downloaded.
+ *
+ * @see DialogNotifier
+ * @type {string}
+ */
+// options.dialogAtComplete = '%n files downloaded completely.';
