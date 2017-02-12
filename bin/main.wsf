@@ -16,6 +16,7 @@
 
     <!-- Notifier -->
     <script language="JavaScript" src="notifier/notifier.js"></script>
+    <script language="JavaScript" src="notifier/dialog-notifier.js"></script>
     <script language="JavaScript" src="notifier/sound-notifier.js"></script>
     <script language="JavaScript" src="notifier/voice-notifier.js"></script>
     <script language="JavaScript" src="notifier/notifier-factory.js"></script>
