@@ -19,6 +19,10 @@ var NotifierFactory = function(){};
  * @return {Notifier} An instance of Notifier classes.
  */
 NotifierFactory.create = function(options) {
+  if (typeof options.dialogAtComplete === 'string') {
+    return new DialogNotifier(options);
+  }
+
   if (typeof options.soundAtComplete === 'string') {
     return new SoundNotifier(options);
   }
