@@ -8,8 +8,11 @@ for (var i = 0; i < urlObjectList.list.length; i++) {
 
   downloader.download(urlObject.origin);
   soundNotifier.notifyAtDownload({
-      countDown: urlObjectList.list.length - i
+      countDown: urlObjectList.list.length - i,
+      numberOfFiles: urlObjectList.list.length
   });
 }
 
-soundNotifier.notifyAtComplete();
+soundNotifier.notifyAtComplete({
+    numberOfFiles: urlObjectList.list.length
+});
